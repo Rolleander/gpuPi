@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
+#include "cuda_runtime.h"
+#include "device_launch_parameters.h"
 #include <curand.h>
 #include <curand_kernel.h>
-#define BLOCKS 100
-#define THREADS 1000
+#define BLOCKS 256
+#define THREADS 512
 #define LOOPS 1000000
 #define N THREADS * BLOCKS
-#define KERNEL_CALLS 50
+#define KERNEL_CALLS 1
 
 __global__ void init(unsigned int seed, curandState_t* states) {
   int threadId = threadIdx.x;
