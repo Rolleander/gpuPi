@@ -6,7 +6,7 @@
         {
             "label": "compileCuda",
             "type": "shell",
-            "command": "nvcc picalc.cu -o kernel"
+            "command": "nvcc kernel.cu -o kernel"
         }
     ]
 }
