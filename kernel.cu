@@ -7,6 +7,7 @@
 #include <curand.h>
 #include <curand_kernel.h>
 
+#define CUDA_CALL(x) {cudaError_t cuda_error__ = (x); if (cuda_error__) printf("CUDA error: " #x " returned \"%s\"\n", cudaGetErrorString(cuda_error__));}
 typedef unsigned long long Counter;
 const Counter WARP_SIZE = 32; 
 const Counter BLOCKS = 2048; 
@@ -51,15 +52,17 @@ int main() {
 	Counter* gpu_pointsInCircle;
 	Counter circleHits = 0;
 	Counter throwCount = BLOCKS * WARP_SIZE * ITERATIONS;
-	cudaMalloc((void**)&gpu_pointsInCircle, BLOCKS * sizeof(Counter));
+	CUDA_CALL(cudaMalloc((void**)&gpu_pointsInCircle, BLOCKS * sizeof(Counter)));
 	cudaEvent_t start, stop;
-	cudaEventCreate(&start);
-	cudaEventCreate(&stop);
+	CUDA_CALL(cudaEventCreate(&start));
+	CUDA_CALL(cudaEventCreate(&stop));
 	printf("Call Kernel\n");
-	cudaEventRecord(start);
+	CUDA_CALL(cudaEventRecord(start));
 	kernel << <BLOCKS, WARP_SIZE >> >(gpu_pointsInCircle);
-	cudaEventRecord(stop);
-	cudaMemcpy(cpu_pointsInCircle, gpu_pointsInCircle, BLOCKS * sizeof(Counter), cudaMemcpyDeviceToHost);
+	CUDA_CALL(cudaPeekAtLastError());
+	CUDA_CALL(cudaDeviceSynchronize());
+	CUDA_CALL(cudaEventRecord(stop));
+	CUDA_CALL(cudaMemcpy(cpu_pointsInCircle, gpu_pointsInCircle, BLOCKS * sizeof(Counter), cudaMemcpyDeviceToHost));
 	float milliseconds = 0;
 	cudaEventElapsedTime(&milliseconds, start, stop);
 	printf("Aggregate Results\n");
@@ -73,7 +76,7 @@ int main() {
 	printf("=>  PI = %.21g \n", pi);
 	printf("[PI is = 3.14159265358979323846]\n");
 	free(cpu_pointsInCircle);
-	cudaFree(gpu_pointsInCircle);
+	CUDA_CALL(cudaFree(gpu_pointsInCircle));
 	//keep the console open
 	std::cin.get();
 	return 0;
