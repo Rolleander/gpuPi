@@ -48,6 +48,12 @@ __global__ void kernel(Counter* pointTotals)
 
 int main() {
 	printf("Init\n");
+	int numDev;
+	CUDA_CALL(cudaGetDeviceCount(&numDev));
+	if (numDev < 1) {
+		printf( "No CUDA device found! \n");
+		return 1;
+	}
 	Counter* cpu_pointsInCircle = (Counter*)malloc(BLOCKS * sizeof(Counter));
 	Counter* gpu_pointsInCircle;
 	Counter circleHits = 0;
