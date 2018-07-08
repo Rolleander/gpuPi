@@ -4,12 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Picalc {
 	
-	private final static int N=1000000000;
+	private final static long N=81920000000L;
 
 	public static void main(String[] args) {
 		long startTime = System.nanoTime();   	
 		long pointsInCircle=0;
-		for(int i=0; i<N; i++) {
+		for(long i=0; i<N; i++) {
 			float x = getRandomPos();
 			float y = getRandomPos();
 			double distance = Math.sqrt(x*x+y*y);

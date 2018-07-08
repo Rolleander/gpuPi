@@ -1,10 +1,255 @@
+################## JAVA ######################
+Finished calculating in 2257.726 Seconds!
+=> 64339653084 in Circle of
+=> 81920000000 Points
+=>  PI = 3.1415846232421876
+[PI is = 3.14159265358979323846]
+##############################################
 
-cuda:
-5000000000000 points
-PI = 3.14159374301119997952
-58.353484 Seconds
+################### FH2 Cuda #################
+WARP SIZE: 32
+BLOCKS: 1
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.480765 seconds!
+=>  251320633 in Circle of
+=>  320000000 Points
+=>  PI = 3.14150791249999983279
+[PI is = 3.14159265358979323846]
 
-java:
-1000000000 points
-PI = 3.141715744
-28.073 Seconds
+
+WARP SIZE: 32
+BLOCKS: 8
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.440004 seconds!
+=>  2010663679 in Circle of
+=>  2560000000 Points
+=>  PI = 3.14166199843749982534
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 16
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.507164 seconds!
+=>  4021287762 in Circle of
+=>  5120000000 Points
+=>  PI = 3.14163106406250003388
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 32
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.445042 seconds!
+=>  8042454477 in Circle of
+=>  10240000000 Points
+=>  PI = 3.14158378007812499888
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 64
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.500662 seconds!
+=>  16084934835 in Circle of
+=>  20480000000 Points
+=>  PI = 3.14158883496093732646
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 128
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.561434 seconds!
+=>  32169774859 in Circle of
+=>  40960000000 Points
+=>  PI = 3.14157957607421867152
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 256
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1.642886 seconds!
+=>  64340018266 in Circle of
+=>  81920000000 Points
+=>  PI = 3.14160245439453111871
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 512
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 2.109586 seconds!
+=>  128679779506 in Circle of
+=>  163840000000 Points
+=>  PI = 3.14159617934570301045
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 1024
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 4.491677 seconds!
+=>  257359200249 in Circle of
+=>  327680000000 Points
+=>  PI = 3.14159179991455062009
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 2048
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 8.377587 seconds!
+=>  514718703918 in Circle of
+=>  655360000000 Points
+=>  PI = 3.1415936518432618918
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 4096
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 16.675217 seconds!
+=>  1029436635056 in Circle of
+=>  1310720000000 Points
+=>  PI = 3.14159129350585919482
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 8192
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 33.776812 seconds!
+=>  2058875203037 in Circle of
+=>  2621440000000 Points
+=>  PI = 3.14159424291534428164
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 16384
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 68.858016 seconds!
+=>  4117749454721 in Circle of
+=>  5242880000000 Points
+=>  PI = 3.14159351709060663538
+[PI is = 3.14159265358979323846]
+
+
+
+WARP SIZE: 32
+BLOCKS: 32768
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 139.506641 seconds!
+=>  8235495788524 in Circle of
+=>  10485760000000 Points
+=>  PI = 3.14159232655487041797
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 65536
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 289.252594 seconds!
+=>  16470996931080 in Circle of
+=>  20971520000000 Points
+=>  PI = 3.14159334775543230833
+[PI is = 3.14159265358979323846]
+
+WARP SIZE: 32
+BLOCKS: 131072
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 562.791313 seconds!
+=>  32941994241718 in Circle of
+=>  41943040000000 Points
+=>  PI = 3.14159338395290355095
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 262144
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 1124.128125 seconds!
+=>  65883989270063 in Circle of
+=>  83886080000000 Points
+=>  PI = 3.14159342146220188496
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 524288
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 2392.261500 seconds!
+=>  131767962863641 in Circle of
+=>  167772160000000 Points
+=>  PI = 3.1415930477056743797
+[PI is = 3.14159265358979323846]
+
+
+WARP SIZE: 32
+BLOCKS: 1048576
+ITERATIONS: 10000000
+Init
+Call Kernel
+Aggregate Results
+Finished calculating in 4564.098000 seconds!
+=>  263535944120902 in Circle of
+=>  335544320000000 Points
+=>  PI = 3.14159326697471152912
+[PI is = 3.14159265358979323846]
+
