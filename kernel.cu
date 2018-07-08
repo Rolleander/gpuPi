@@ -9,9 +9,9 @@
 
 #define CUDA_CALL(x) {cudaError_t cuda_error__ = (x); if (cuda_error__) printf("CUDA error: " #x " returned \"%s\"\n", cudaGetErrorString(cuda_error__));}
 typedef unsigned long long Counter;
-const Counter WARP_SIZE = 32; 
-const Counter BLOCKS = 2048; 
-const Counter ITERATIONS = 1000; 
+Counter WARP_SIZE = 32; 
+Counter BLOCKS = 2048; 
+Counter ITERATIONS = 1000; 
 
 __global__ void kernel(Counter* pointTotals)
 {
@@ -46,7 +46,19 @@ __global__ void kernel(Counter* pointTotals)
 	}
 }
 
-int main() {
+int main(int argc, char *argv[]) {
+	if(argc!=3){
+		printf("Wrong number of argmuments, needed: WarpSize, Blocks, Iterations\n");
+		printf("Using default settings... \n");
+	}
+	else{
+		WARP_SIZE = strtoull( argv[0], NULL, 10 );
+		BLOCKS = strtoull( argv[1], NULL, 10 );
+		ITERATIONS = strtoull( argv[2], NULL, 10 );
+	}
+	printf("WARP SIZE: %llu",WARP_SIZE);
+	printf("BLOCKS: %llu",BLOCKS);
+	printf("ITERATIONS: %llu",ITERATIONS);	
 	printf("Init\n");
 	int numDev;
 	CUDA_CALL(cudaGetDeviceCount(&numDev));
