@@ -26,9 +26,9 @@ __global__ void kernel(Counter* pointTotals)
 	//loop for point generation and circle check
 	for (Counter i = 0; i < ITERATIONS; i++)
 	{
-		float x = curand_uniform(&curandom) ;
-		float y = curand_uniform(&curandom) ;
-		float distanceToCenter = sqrt(x*x + y*y);
+		double x = curand_uniform(&curandom) ;
+		double y = curand_uniform(&curandom) ;
+		double distanceToCenter = sqrt(x*x + y*y);
 		bool inCircle = distanceToCenter <= 1;
 		if (inCircle) {
 			threadTotals[threadId]+=1;
