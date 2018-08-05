@@ -26,8 +26,8 @@ __global__ void kernel(Counter* pointTotals)
 	//loop for point generation and circle check
 	for (Counter i = 0; i < ITERATIONS; i++)
 	{
-		double x = curand_uniform(&curandom) ;
-		double y = curand_uniform(&curandom) ;
+		double x = curand_uniform_double(&curandom) ;
+		double y = curand_uniform_double(&curandom) ;
 		double distanceToCenter = sqrt(x*x + y*y);
 		bool inCircle = distanceToCenter <= 1;
 		if (inCircle) {
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
 	CUDA_CALL(cudaEventCreate(&stop));
 	printf("Call Kernel\n");
 	CUDA_CALL(cudaEventRecord(start));
-	kernel << <BLOCKS, WARP_SIZE >> >(gpu_pointsInCircle);
+	kernel <<<BLOCKS, WARP_SIZE >>>(gpu_pointsInCircle);
 	CUDA_CALL(cudaPeekAtLastError());
 	CUDA_CALL(cudaDeviceSynchronize());
 	CUDA_CALL(cudaEventRecord(stop));
